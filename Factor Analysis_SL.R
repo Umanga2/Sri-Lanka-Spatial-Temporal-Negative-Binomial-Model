@@ -12,7 +12,7 @@ library(forcats) # tools for working with categorical or nominal variables
 library(dplyr)
 
 
-setwd("C://Users/gunas015/Desktop/SL Comp")
+setwd("C://Users/")
 data<-read.csv("Data_FAMD_Hpop.csv")
 
 #making factor variable
