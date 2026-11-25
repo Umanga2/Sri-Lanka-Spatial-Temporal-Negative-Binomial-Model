@@ -79,7 +79,7 @@ rm(list = ls())
 # plot adjacency graph function
 #source("plot_neighbors.R")
 
-setwd("C://Users/gunas015/Desktop/SL Comp")
+setwd("C://Users/")
 
 data<-read.csv("BYM4_FAMD.csv") 
 #%>%
@@ -88,7 +88,7 @@ data<-read.csv("BYM4_FAMD.csv")
 # spelled different in the polygons, without the "h" in polygons
 data$district[data$district == "Mullaithivu"] <- "Mullaitivu"
 
-# human population density, source: https://lankastatistics.com/economic/districtwise-population-and-density.html]
+
 # number of cattle, buffalo, and goat farmers, 
 #source: https://www.statistics.gov.lk/Agriculture/StaticalInformation/LivestockFarmers#gsc.tab=0
 # pop_dens <- read.csv("local/pop_farms_density.csv")
@@ -531,28 +531,6 @@ hist(b,plot=TRUE)
 
 form_III$cpo$failure
 #>0 is bad for failure, didn't get any value above 0,so the model is good,
-
-##There are 14 spatial outliers.Therfore, trying to see where it is coming from;
-
-# Extract the 14 outlier observations alongside their validation metrics
-outlier_table <- data[outliers, ]
-outlier_table$cpo <- form_III$cpo$cpo[outliers]
-outlier_table$pit <- form_III$cpo$pit[outliers]
-outlier_table$fitted_rr <- form_III$summary.fitted.values$mean[outliers] 
-
-# Note: if you passed expected counts via E = ..., multiply fitted_rr * E 
-#to get predicted counts
-
-print(outlier_table)
-
-# 1. Inspect the exact model call (check E = ... and any offset() in the formula)
-form_III$call
-
-# 2. Check for numerical CPO failures
-table(form_III$cpo$failure)
-
-# 3. Verify whether summary.fitted.values$mean is on the relative risk or count scale
-summary(form_III$summary.fitted.values$mean)
 
 #compute the adjusted discrete PIT values
 
